@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2"
+         location="/mnt/Store_Meteo/PRODUCTOS/METEOSIX/${ano}${mes}${dia}/${ciclo}/wrf_arw_det_history_d02_${ano}${mes}${dia}_${ciclo}00.nc4">
+
+ <explicit />
+
+  <dimension name="y"/>
+  <dimension name="x"/>
+  <dimension name="time"/>
+
+ <attribute name="title" type="string" value="Wind forecast. Iberian coast at 12km resolution"/>
+
+  <variable name="time" shape="time">
+    <attribute name="long_name" value="time" />
+    <attribute name="standard_name" value="time" />
+    <attribute name="units" value="seconds since ${ano}-${mes}-${dia} ${ciclo}:00:00" />
+  </variable>
+
+
+  <variable name="Lambert_Conformal" type="int">
+    <attribute name="grid_mapping_name" value="lambert_conformal_conic" />
+    <attribute name="longitude_of_central_meridian" type="double" value="-14.1000003814697" />
+    <attribute name="standard_parallel" type="double" value="43. 43." />
+    <attribute name="latitude_of_projection_origin" type="double" value="40.7190017700195" />
+    <attribute name="false_easting" type="double" value="-241.44951" />
+    <attribute name="false_northing" type="double" value="-4.10447" />
+  </variable>
+
+  <variable name="x" shape="x">
+    <attribute name="standard_name" value="projection_x_coordinate" />
+    <attribute name="long_name" value="x coordinate of projection" />
+    <attribute name="units" value="km" />
+    <attribute name="step" type="double" value="4." />
+  </variable>
+
+  <variable name="y" shape="y">
+    <attribute name="standard_name" value="projection_y_coordinate" />
+    <attribute name="long_name" value="y coordinate of projection" />
+    <attribute name="units" value="km" />
+    <attribute name="step" type="double" value="4." />
+  </variable>
+
+
+  <variable name="longitude" orgName="lon" shape="y x">
+    <attribute name="standard_name" value="longitude" />
+    <attribute name="long_name" value="longitude coordinate" />
+    <attribute name="units" value="degree_east" />
+  </variable>
+
+  <variable name="latitude" orgName="lat" shape="y x">
+    <attribute name="standard_name" value="latitude" />
+    <attribute name="long_name" value="latitude coordinate" />
+    <attribute name="units" value="degree_north" />
+  </variable>
+
+  <variable name="u" shape="time y x">
+    <attribute name="standard_name" value="eastward_wind" />
+    <attribute name="long_name" value="lon-wind at 10m" />
+    <attribute name="units" value="m s-1" />
+    <attribute name="coordinates" value="longitude latitude" />
+    <attribute name="grid_mapping" value="Lambert_Conformal" />
+  </variable>
+
+  <variable name="v" shape="time y x">
+    <attribute name="standard_name" value="northward_wind" />
+    <attribute name="long_name" value="lat-wind at 10m" />
+    <attribute name="units" value="m s-1" />
+    <attribute name="coordinates" value="longitude latitude" />
+    <attribute name="grid_mapping" value="Lambert_Conformal" />
+  </variable>
+
+
+</netcdf>
+

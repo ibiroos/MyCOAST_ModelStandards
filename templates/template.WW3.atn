@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2"
+         location="/mnt/Store_Meteo/PRODUCTOS/THREDDS/${ano}${mes}${dia}/${ciclo}/ww3_atn_${ano}${mes}${dia}_${ciclo}00.nc">
+
+ <explicit />
+
+ <dimension name="longitude" orgName="lon" />
+ <dimension name="latitude" orgName="lat" />
+ <dimension name="time" orgName="time" />
+
+ <attribute name="title" type="string" value="Wave forecast. North Atlantic at 0.5 degree resolution"/>
+ <attribute name="Conventions" value="CF-1.6" />
+
+
+  <variable name="time" shape="time" type="int">
+    <attribute name="standard_name" value="time" />
+    <attribute name="units" value="seconds since ${ano}-${mes}-${dia} ${ciclo}:00:00" />
+  </variable>
+
+ <variable name="longitude" orgName="lon" shape="longitude">
+    <attribute name="long_name" value="longitude coordinate"/>
+    <attribute name="standard_name" value="longitude" />
+    <attribute name="units" value="degrees_east"/>
+ </variable>
+
+ <variable name="latitude"  orgName="lat" shape="latitude">
+    <attribute name="long_name" value="latitude coordinate"/>
+    <attribute name="standard_name" value="latitude" />
+    <attribute name="units" value="degrees_north"/>
+ </variable>
+
+ <variable name="hs" shape="time latitude longitude">
+   <attribute name="standard_name" value="sea_surface_wave_significant_height" />
+   <attribute name="long_name" value="significant wave height" />
+   <attribute name="units" value="m" />
+   <attribute name='coordinates' value='longitude latitude time' />
+   <attribute name="_FillValue" type="float" value="-999." />
+ </variable>
+
+</netcdf>
+

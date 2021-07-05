@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2"
+         location="/mnt/Store_Meteo/RESULTADOS/SWAN/${ano}${mes}${dia}/${ciclo}/swan_galicia_${ano}${mes}${dia}_${ciclo}00.nc">
+
+ <explicit />
+
+
+  <dimension name="node" />
+  <!--<dimension name="edge" />-->
+  <dimension name="face" />
+  <dimension name="time" />
+  <!--<dimension name="Two"  />-->
+  <dimension name="Three" />
+
+  <variable name="triangular_mesh">
+    <attribute name="cf_role" value="mesh_topology" />
+    <attribute name="long_name" value="Topology data of 2D unstructured mesh" />
+    <attribute name="topology_dimension" type="int" value="2" />
+    <attribute name="node_coordinates" value="longitude latitude" />
+    <attribute name="face_node_connectivity" value="face_nodes" />
+  </variable>
+
+  <variable name="x" shape="node">
+    <attribute name="standard_name" value="x" />
+    <attribute name="long_name" value="x coordinate of 2D mesh nodes." />
+    <attribute name="units" value="m" />
+  </variable>
+
+  <variable name="y" shape="node">
+    <attribute name="standard_name" value="y" />
+    <attribute name="long_name" value="y coordinate of 2D mesh nodes." />
+    <attribute name="units" value="m" />
+  </variable>
+
+  <variable name="longitude" shape="node">
+    <attribute name="standard_name" value="longitude" />
+    <attribute name="long_name" value="Longitude of 2D mesh nodes." />
+    <attribute name="units" value="degrees_east" />
+  </variable>
+
+  <variable name="latitude" shape="node">
+    <attribute name="standard_name" value="latitude" />
+    <attribute name="long_name" value="Latitude of 2D mesh nodes." />
+    <attribute name="units" value="degrees_north" />
+  </variable>
+
+  <variable name="face_nodes" shape="face Three">
+    <attribute name="cf_role" value="face_node_connectivity" />
+    <attribute name="long_name" value="Maps every triangular face to its three corner nodes." />
+    <attribute name="start_index" type="int" value="0" />
+  </variable>
+
+  <variable name="time" shape="time">
+    <attribute name="units" value="seconds since 1970-01-01" />
+    <attribute name="calendar" value="gregorian" />
+    <attribute name="standard_name" value="time" />
+    <attribute name="long_name" value="time" />
+  </variable>
+
+  <variable name="depth" shape="time node">
+    <attribute name="_FillValue" type="float" value="9.96921e+36" />
+    <attribute name="units" value="m" />
+    <attribute name="standard_name" value="sea_floor_depth_below_sea_level" />
+    <attribute name="long_name" value="depth below mean sea level" />
+  </variable>
+
+  <variable name="hs" shape="time node">
+    <attribute name="_FillValue" type="short" value="-32768" />
+    <attribute name="units" value="m" />
+    <attribute name="standard_name" value="sea_surface_wave_significant_height" />
+    <attribute name="long_name" value="hs" />
+    <attribute name="scale_factor" type="float" value="0.0007629627" />
+    <attribute name="add_offset" type="float" value="25." />
+  </variable>
+
+</netcdf>
+
